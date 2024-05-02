@@ -1,9 +1,16 @@
+from enum import Enum
+class EventType(Enum):
+    Wedding = 1
+    Birthday = 2
+    Themed_Party = 3
+    Graduation = 4
+
 class Event:
     """Class to represent an event"""
 
     def __init__(self, event_id, event_type, theme, date, time, duration, venue_id, client_id, guests=None, suppliers=None, invoice=None):
         self._event_id = event_id
-        self._event_type = event_type
+        self._event_type = EventType(event_type).name.replace("_", " ")
         self._theme = theme
         self._date = date
         self._time = time
@@ -102,8 +109,8 @@ class Event:
 
     def __str__(self):
         return ("Event ID: " + str(self._event_id) +
-                ", Event Type: " + self._event_type +
-                ", Theme: " + self._theme +
+                ", Event Type: " + str(self._event_type) +
+                ", Theme: " + str(self._theme) +
                 ", Date: " + str(self._date) +
                 ", Time: " + str(self._time) +
                 ", Duration: " + str(self._duration) +" hours" +
@@ -112,4 +119,3 @@ class Event:
                 ", Guest List: " + str(self.guest_list()) +
                 ", Suppliers: " + str(self.supplier_list()) +
                 ", Invoice: " + str(self._invoice))
-
