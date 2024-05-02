@@ -1,5 +1,4 @@
 from Person import Person
-
 class Employee(Person):
     """Class to represent an employee"""
 
