@@ -6,7 +6,7 @@ from Client import Client
 from Guest import Guest
 from Supplier import Supplier
 from Event import Event, EventType
-
+ # Import of modules and classes
 class MyGUI: # Created class
     """Main window of Event Manager"""
     def __init__(self): # Initialization
