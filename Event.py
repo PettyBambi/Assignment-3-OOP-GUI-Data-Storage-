@@ -1,5 +1,5 @@
 from enum import Enum
-class EventType(Enum):
+class EventType(Enum): # Enum defining event types
     Wedding = 1
     Birthday = 2
     Themed_Party = 3
@@ -8,9 +8,10 @@ class EventType(Enum):
 class Event:
     """Class to represent an event"""
 
+    # Constructor
     def __init__(self, event_id, event_type, theme, date, time, duration, venue_id, client_id, guests=None, suppliers=None, invoice=None):
         self._event_id = event_id
-        self._event_type = EventType(event_type).name.replace("_", " ")
+        self._event_type = event_type
         self._theme = theme
         self._date = date
         self._time = time
@@ -29,8 +30,9 @@ class Event:
 
     def set_event_type(self, event_type):
         self._event_type = event_type
-    def get_event_type(self):
-        return self._event_type
+
+    def get_event_type_word(event_type):
+        return EventType(int(event_type)).name.replace("_", " ")
 
     def set_theme(self, theme):
         self._theme = theme
@@ -70,8 +72,9 @@ class Event:
         return self._guests
     def guest_list(self):
         guest_list = []
-        for guest in self._guests:
-            guest_list.append(guest.get_name())
+        if self._guests:
+            for guest in self._guests:
+                guest_list.append(guest.get_name())
         return guest_list
 
     def set_suppliers(self, suppliers):
@@ -82,8 +85,9 @@ class Event:
         return self._suppliers
     def supplier_list(self):
         supplier_list = []
-        for supplier in self._suppliers:
-            supplier_list.append(supplier.get_company_name())
+        if self._suppliers:
+            for supplier in self._suppliers:
+                supplier_list.append(supplier.get_company_name())
         return supplier_list
 
     def set_invoice(self, invoice):
@@ -91,10 +95,10 @@ class Event:
     def get_invoice(self):
         return self._invoice
 
-    def get_event_info(self):
+    def get_event_info(self): # Event information as a dictionary
         event_info = {
             'Event ID': self._event_id,
-            'Event Type': self._event_type,
+            'Event Type': Event.get_event_type_word(self._event_type),
             'Theme': self._theme,
             'Date': self._date,
             'Time': self._time,
@@ -107,13 +111,13 @@ class Event:
         }
         return event_info
 
-    def __str__(self):
+    def __str__(self): # Returns string
         return ("Event ID: " + str(self._event_id) +
-                ", Event Type: " + str(self._event_type) +
+                ", Event Type: " + Event.get_event_type_word(self._event_type) +
                 ", Theme: " + str(self._theme) +
                 ", Date: " + str(self._date) +
                 ", Time: " + str(self._time) +
-                ", Duration: " + str(self._duration) +" hours" +
+                ", Duration: " + str(self._duration) + " hours" +
                 ", Venue ID: " + str(self._venue_id) +
                 ", Client ID: " + str(self._client_id) +
                 ", Guest List: " + str(self.guest_list()) +

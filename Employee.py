@@ -2,9 +2,10 @@ from Person import Person
 class Employee(Person):
     """Class to represent an employee"""
 
-    def __init__(self, person_id, first_name, last_name, email, phone, birth_of_date, age, gender, nationality,
+    # Constructor method for attributes to the class
+    def __init__(self, personal_id, first_name, last_name, email, phone, birth_of_date, age, gender, nationality,
                  department, job_title, salary, manager_id, employee_id):
-        Person.__init__(self, person_id, first_name, last_name, email, phone, birth_of_date, age, gender, nationality)
+        Person.__init__(self, personal_id, first_name, last_name, email, phone, birth_of_date, age, gender, nationality)
         self._department = department
         self._job_title = job_title
         self._salary = salary
@@ -37,7 +38,7 @@ class Employee(Person):
     def get_employee_id(self):
         return self._employee_id
 
-    def get_employee_info(self):
+    def get_employee_info(self): # Employee information as a dictionary
         employee_info = {
             'Person ID': self.get_id(),
             'Name': self.get_name(),
@@ -47,15 +48,15 @@ class Employee(Person):
             'Age': self.get_age(),
             'Gender': self.get_gender(),
             'Nationality': self.get_nationality(),
-            'Department': self._department,
-            'Job Title': self._job_title,
-            'Salary': self._salary,
-            'Manager ID': self._manager_id,
-            'Employee ID': self._employee_id
+            'Department': self.get_department(),
+            'Job Title': self.get_job_title(),
+            'Salary': self.get_salary(),
+            'Manager ID': self.get_manager_id(),
+            'Employee ID': self.get_employee_id()
         }
         return employee_info
 
-    def __str__(self):
+    def __str__(self): # Returns string
         return "Department: " + self._department + ", Job Title: " + self._job_title + ", Salary: " + str(
             self._salary) + ", Manager ID: " + str(self._manager_id) + ", Employee ID: " + str(
             self._employee_id) + ", Passport Details: " + str(self.get_passport_info())

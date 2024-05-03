@@ -1,8 +1,9 @@
 class Person:
     """Class to represent a person"""
 
-    def __init__(self, person_id, first_name, last_name, email, phone, birth_of_date, age, gender, nationality):
-        self._person_id = person_id
+    # Attributes
+    def __init__(self, personal_id, first_name, last_name, email, phone, birth_of_date, age, gender, nationality):
+        self._personal_id = personal_id
         self._first_name = first_name
         self._last_name = last_name
         self._email = email
@@ -12,10 +13,11 @@ class Person:
         self._gender = gender
         self._nationality = nationality
 
-    def set_id(self, person_id):
-        self._person_id = person_id
+    # Setters and getters
+    def set_id(self, personal_id):
+        self._personal_id = personal_id
     def get_id(self):
-        return self._person_id
+        return self._personal_id
 
     def set_name(self, first_name, last_name):
         self._first_name = first_name
@@ -53,9 +55,10 @@ class Person:
     def get_nationality(self):
         return self._nationality
 
+    # Get passport information
     def get_passport_info(self):
         passport_info = {
-            'Person ID': self._person_id,
+            'Person ID': self._personal_id,
             'Name': self.get_name(),
             'Email': self._email,
             'Phone': self._phone,
@@ -65,9 +68,9 @@ class Person:
             'Nationality': self._nationality
         }
         return passport_info
-    def __str__(self):
+    def __str__(self): #string print
         return "ID: " + str(
-            self._person_id) + ", Name: " + self._first_name + " " + self._last_name + ", Email: " + self._email + ", Phone: " + str(
+            self._personal_id) + ", Name: " + self._first_name + " " + self._last_name + ", Email: " + self._email + ", Phone: " + str(
             self._phone) + ", Birth Date: " + self._birth_of_date + ", Age: " + str(self._age) + ", Gender: " + self._gender + ", Nationality: " + str(self._nationality)
 
 

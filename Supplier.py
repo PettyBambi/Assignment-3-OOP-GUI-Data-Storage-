@@ -1,6 +1,7 @@
 class Supplier:
     """Class to represent a supplier"""
 
+    # Constructor
     def __init__(self, supplier_id, company_name, phone, email, services_provided, min_guests=None, max_guests=None, menu=None):
         self._supplier_id = supplier_id
         self._company_name = company_name
@@ -52,7 +53,7 @@ class Supplier:
     def get_menu(self):
         return self._menu
 
-    def get_supplier_info(self):
+    def get_supplier_info(self): # Stores supplier information
         supplier_info = {
             'Supplier ID': self._supplier_id,
             'Company Name': self._company_name,
@@ -65,5 +66,6 @@ class Supplier:
         }
         return supplier_info
 
-    def __str__(self):
+    def __str__(self): # Returns string
         return "Supplier ID: " + str(self._supplier_id) + ", Company Name: " + self._company_name + ", Phone: " + str(self._phone) + ", Email: " + self._email + ", Services Provided: " + self._services_provided + ", Minimum Number of Guests: " + str(self._min_guests) + ", Maximum Number of Guests: " + str(self._max_guests) + ", Menu: " + str(self._menu)
+

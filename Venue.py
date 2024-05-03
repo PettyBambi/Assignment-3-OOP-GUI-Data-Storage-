@@ -1,6 +1,7 @@
 class Venue:
     """Class to represent a venue"""
 
+    # Initializes attributes
     def __init__(self, venue_id, venue_name, email, phone, location, min_guests, max_guests):
         self._venue_id = venue_id
         self._venue_name = venue_name
@@ -46,7 +47,7 @@ class Venue:
     def get_max_guests(self):
         return self._max_guests
 
-    def get_venue_info(self):
+    def get_venue_info(self): # Retrieves information
         venue_info = {
             'Venue ID': self._venue_id,
             'Venue Name': self._venue_name,
@@ -58,6 +59,6 @@ class Venue:
         }
         return venue_info
 
-    def __str__(self):
+    def __str__(self): # Prints String
         return "Venue ID: " + str(self._venue_id) + ", Venue Name: " + self._venue_name + ", Email: " + self._email + ", Phone: " + self._phone + ", Location: " + self._location + ", Minimum Number of Guests: " + str(self._min_guests) + ", Maximum Number of Guests: " + str(self._max_guests)
 
