@@ -26,9 +26,3 @@ class Guest(Person):
     def __str__(self): # String print
         return "Guest ID: " + str(self._guest_id) + ", Name: " + self.get_name() + ", Email: " + self.get_email() + ", Phone: " + self.get_phone()
 
-
-
-guest1 = Guest(1, "123456789", "John", "Doe", "john@example.com", "1234567890", "1990-01-01", 31, "Male", "American")
-guest2 = Guest(2, "987654321", "Alice", "Smith", "alice@example.com", "9876543210", "1985-05-15", 36, "Female", "British")
-guest3 = Guest(3, "456789123", "Michael", "Johnson", "michael@example.com", "4567891230", "1982-11-20", 39, "Male", "Canadian")
-guest4 = Guest(4, "789123456", "Emily", "Davis", "emily@example.com", "7891234560", "1978-08-10", 43, "Female", "Australian")
